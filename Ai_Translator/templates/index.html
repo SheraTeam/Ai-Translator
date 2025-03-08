@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML Translator (Structure Preserved)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        label {
+            font-weight: bold;
+        }
+        textarea {
+            height: 200px;
+            padding: 10px;
+            font-family: monospace;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: fit-content;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .error {
+            color: red;
+            padding: 10px;
+            background-color: #ffeeee;
+            border: 1px solid #ffcccc;
+            margin: 10px 0;
+            /* display: {% if error_message %}block{% else %}none{% endif %}; */
+        }
+    </style>
+</head>
+<body>
+    <h1>HTML Structure-Preserving Translator</h1>
+    
+    <div class="container">
+        <div class="error">{{ error_message }}</div>
+        
+        <form method="POST">
+            <div class="form-group">
+                <label for="html_input">Enter HTML Code:</label>
+                <textarea id="html_input" name="html_input" required>{{ original_html }}</textarea>
+            </div>
+            
+            <button type="submit">Translate</button>
+            
+            <div class="form-group">
+                <label for="translated_html">Translated HTML (Spanish):</label>
+                <textarea id="translated_html" readonly>{{ translated_html }}</textarea>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
